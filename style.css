@@ -1,0 +1,285 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+/* Header styles */
+header {
+    background-color: #003366;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* Adjust as needed */
+    margin-right: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column; /* Stack logo and nav vertically */
+        align-items: flex-start; /* Align items to the start */
+        padding-top: 10px; /* Add some padding to push content down slightly */
+    }
+
+    .logo-container {
+        margin-bottom: 10px; /* Space between logo and nav */
+    }
+
+    header h1 {
+        text-align: center;
+        width: 100%;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row; /* Keep items in a row */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center; /* Center the items */
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 5px 10px; /* Adjust spacing */
+        flex: 0 0 auto; /* Don't grow or shrink */
+        min-width: 80px; /* Ensure enough space for wrapping */
+        max-width: 120px; /* Prevent items from becoming too wide */
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 8px 0;
+    }
+
+    header {
+        position: static; /* Make header scrollable on mobile */
+    }
+
+    #back-to-top {
+        display: none !important; /* Force hide back to top button on mobile */
+    }
+
+
+}
+
+    /* Table adjustments for smaller screens */
+    .results-table,
+    .standings-table {
+        font-size: 0.7em; /* Smaller font size for mobile tables */
+    }
+
+    .results-table th,
+    .results-table td,
+    .standings-table th,
+    .standings-table td {
+        padding: 8px 5px; /* Reduced padding for table cells */
+    }
+
+
+
+.scroll-instruction {
+    text-align: left; /* Align to the left */
+    font-size: 0.6em; /* Smaller font size */
+    color: #666; /* Subtle color */
+    margin-top: -35px; /* Pull it up even higher */
+    margin-bottom: 5px; /* Small margin below */
+    padding-left: 5px; /* Small padding on the left */
+}
+
+/* Hero Section */
+#hero {
+    min-height: 400px;
+    background-image: url('images/Web_Photo_Editor.jpg'); /* Water polo background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px black;
+}
+
+#hero p {
+    font-size: 20px;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black,
+        2px 2px 4px black; /* Keep a slight blur for depth */
+}
+
+/* Content Sections */
+.content-section {
+    padding: 40px 0;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-bottom: #ccc 1px solid;
+}
+
+.content-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0a2351;
+}
+
+.staff-list, .roster-list {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.staff-list p strong, .roster-list p strong {
+    color: #0a2351;
+}
+
+.results-table-container, .standings-table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.results-table, .standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.results-table thead tr, .standings-table thead tr {
+    background-color: #0a2351;
+    color: #ffffff;
+    text-align: left;
+}
+
+.results-table th, .results-table td, .standings-table th, .standings-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+}
+
+.results-table tbody tr, .standings-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.results-table tbody tr:nth-of-type(even), .standings-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.results-table tbody tr:last-of-type, .standings-table tbody tr:last-of-type {
+    border-bottom: 2px solid #0a2351;
+}
+
+.standings-table .highlight-row {
+    background-color: #ffe0b2; /* Light orange for highlight */
+    font-weight: bold;
+    color: #0a2351;
+}
+
+.standings-table .highlight-row td {
+    border-color: #ff9800;
+}
+
+/* Footer Styles */
+footer {
+    padding: 20px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #0a2351;
+    text-align: center;
+
+}
+
+/* Back to Top Button */
+#back-to-top {
+    display: block; /* Visible by default on desktop */
+    position: fixed; /* Fixed position relative to viewport */
+    bottom: 80px; /* Adjust to be above the footer */
+    right: 20px; /* 20px from the right */
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    font-size: 0.9em; /* Smaller font size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+    z-index: 999; /* Ensure it's above other content */
+}
+
+#back-to-top:hover {
+    background-color: #0056b3; /* Lighter blue on hover */
+}

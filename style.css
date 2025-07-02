@@ -1,10 +1,18 @@
 /* General Body Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arsenal', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(to right, red, blue, white);
     color: #333;
+}
+
+header,
+footer {
+    background: linear-gradient(to right, red, blue, white);
+    color: white; /* Assuming white text would look good on this gradient */
+    padding: 1em 0;
+    text-align: center;
 }
 
 .container {
@@ -48,11 +56,85 @@ header .container {
 .logo {
     height: 50px; /* Adjust as needed */
     margin-right: 15px;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for 0.3 seconds */
 }
 
 header h1 {
     margin: 0;
     font-size: 2em;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for 0.3 seconds */
+}
+
+.logo-container:hover .logo {
+    transform: scale(1.1); /* Scales the logo to 110% of its original size */
+}
+
+.logo-container:hover h1 {
+    transform: scale(1.05); /* Slightly scales the h1 to 105% of its original size */
+}
+
+/* Call to Action Section Styles */
+.call-to-action-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: center;
+    gap: 20px; /* Space between items */
+}
+
+.call-to-action-item {
+    flex: 1 1 45%; /* Allows items to grow/shrink and take about half width */
+    max-width: 48%; /* Ensures two items per row with gap */
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden; /* Ensures content doesn't spill out on scale */
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover */
+}
+
+.call-to-action-item:hover {
+    transform: scale(1.03); /* Slightly scales the item on hover */
+}
+
+.call-to-action-item img {
+    width: 100%;
+    height: 250px; /* Increased height for rectangular shape */
+    object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+    display: block;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for image scale */
+}
+
+.call-to-action-item:hover img {
+    transform: scale(1.05); /* Scales the image inside the item */
+}
+
+.call-to-action-item h3 {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for element's own size */
+    width: 90%; /* Adjust width to prevent overflow */
+    color: white;
+    padding: 10px 0;
+    margin: 0;
+    font-size: 2.2em; /* Increased font size even more */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Stronger shadow for readability */
+    transition: all 0.3s ease-in-out; /* Smooth transition for text */
+    z-index: 2; /* Ensure text is above image */
+}
+
+.call-to-action-item:hover h3 {
+    font-size: 2.3em; /* Increased font size on hover even more */
+    transform: translate(-50%, -50%) scale(1.1); /* Scale the text more than the image */
+}
+
+@media (max-width: 768px) {
+    .call-to-action-item {
+        flex: 1 1 90%; /* Stack items vertically on small screens */
+        max-width: 90%;
+    }
 }
 
 /* Navigation styles */

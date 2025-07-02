@@ -9,7 +9,7 @@ body {
 
 header,
 footer {
-    background: linear-gradient(to right, red, blue, white);
+    /* background: linear-gradient(to right, red, blue, white); */ /* Removed */
     color: white; /* Assuming white text would look good on this gradient */
     padding: 1em 0;
     text-align: center;
@@ -24,7 +24,9 @@ footer {
 
 /* Header styles */
 header {
-    background-color: #003366;
+    background-image: url('images/1.jfif'); /* Use 1.jfif as background */
+    background-size: cover;
+    background-position: bottom;
     color: white;
     padding: 10px 0;
     position: fixed;
@@ -54,9 +56,10 @@ header .container {
 }
 
 .logo {
-    height: 50px; /* Adjust as needed */
+    width: 70px; /* Increased size */
+    height: 70px; /* Increased size */
     margin-right: 15px;
-    transition: transform 0.3s ease-in-out; /* Smooth transition for 0.3 seconds */
+    transition: transform 0.3s ease-in-out;
 }
 
 header h1 {
@@ -154,7 +157,10 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
 nav ul li a:hover {
@@ -236,39 +242,29 @@ nav ul li a:hover {
 
 /* Hero Section */
 #hero {
-    min-height: 400px;
-    background-image: url('images/Web_Photo_Editor.jpg'); /* Water polo background image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    min-height: 200px; /* Adjusted height */
+    padding-top: 80px; /* Move content up a bit */
+    background-color: #ffffff; /* White background color */
     text-align: center;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#hero h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px black;
+#hero .hero-title {
+    font-size: 3.5em; /* Adjust font size as needed */
+    color: #0a2351; /* Same color as h2 */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
 }
 
-#hero p {
-    font-size: 20px;
-    text-shadow:
-        -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-        1px 1px 0 black,
-        2px 2px 4px black; /* Keep a slight blur for depth */
-}
+
 
 /* Content Sections */
 .content-section {
-    padding: 40px 0;
+    padding: 10px 0 20px 0; /* Reduced top padding, kept bottom padding */
     background-color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 0px; /* Remove margin-bottom */
     border-bottom: #ccc 1px solid;
 }
 

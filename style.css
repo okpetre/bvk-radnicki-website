@@ -3,7 +3,7 @@ body {
     font-family: 'Arsenal', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, red, blue, white);
+    /* background: linear-gradient(to right, red, blue, white); */ /* Removed */
     color: #333;
 }
 
@@ -35,9 +35,9 @@ header {
     left: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Keep flex to manage logo */
+    justify-content: flex-start; /* Align logo to the start */
+    align-items: center; /* Vertically center logo */
 }
 
 header .container {
@@ -170,9 +170,13 @@ nav ul li a:hover {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     header .container {
-        flex-direction: column; /* Stack logo and nav vertically */
-        align-items: flex-start; /* Align items to the start */
-        padding-top: 10px; /* Add some padding to push content down slightly */
+        flex-direction: row; /* Keep logo and nav (if visible) in a row for container */
+        align-items: center; /* Align items to the center */
+        padding: 10px 20px; /* Adjust padding for mobile */
+    }
+
+    header nav {
+        display: none; /* Hide navigation on mobile */
     }
 
     .logo-container {
@@ -185,14 +189,11 @@ nav ul li a:hover {
     }
 
     nav ul {
-        display: flex;
-        flex-direction: row; /* Keep items in a row */
-        flex-wrap: wrap; /* Allow wrapping */
-        justify-content: center; /* Center the items */
-        width: 100%;
+        display: none; /* Hide navigation on mobile */
     }
 
-    nav ul li {
+    .container {
+        width: 95%;
         margin: 5px 10px; /* Adjust spacing */
         flex: 0 0 auto; /* Don't grow or shrink */
         min-width: 80px; /* Ensure enough space for wrapping */
@@ -212,7 +213,6 @@ nav ul li a:hover {
     #back-to-top {
         display: none !important; /* Force hide back to top button on mobile */
     }
-
 
 }
 

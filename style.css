@@ -89,45 +89,7 @@ header h1 {
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
-    header .container {
-        justify-content: space-between; /* Space out logo and hamburger */
-    }
 
-    .hamburger-menu {
-        display: flex; /* Show hamburger on mobile */
-    }
-
-    header nav {
-        position: absolute;
-        top: 100%; /* Position below the header */
-        left: 0;
-        width: 100%;
-        background-color: #0a2351; /* Dark blue background */
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        display: none; /* Hidden by default, will be toggled by JS */
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    header nav.active {
-        display: flex; /* Show when active */
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        padding: 10px 0;
-        text-align: center;
-        width: 100%;
-    }
 }
 
 .info-page-logo {
@@ -207,10 +169,6 @@ header h1 {
 }
 
 @media (max-width: 768px) {
-    .call-to-action-item {
-        flex: 1 1 90%; /* Stack items vertically on small screens */
-        max-width: 90%;
-    }
 }
 
 /* Navigation styles */
@@ -242,97 +200,63 @@ nav ul li a:hover {
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-    header .container {
-        flex-direction: row; /* Keep logo and nav (if visible) in a row for container */
-        align-items: center; /* Align items to the center */
-        padding: 10px 20px; /* Adjust padding for mobile */
-        justify-content: space-between; /* Space out logo and hamburger */
-    }
-
-    .hamburger-menu {
-        display: flex; /* Show hamburger on mobile */
-    }
-
-    header nav {
-        position: absolute;
-        top: 100%; /* Position below the header */
-        left: 0;
-        width: 100%;
-        background-color: #0a2351; /* Dark blue background */
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        display: none; /* Hidden by default, will be toggled by JS */
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    header nav.active {
-        display: flex; /* Show when active */
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    nav ul li a {
-        padding: 10px 0;
+    body {
         text-align: center;
-        width: 100%;
     }
-
-    .logo-container {
-        margin-bottom: 0; /* No margin-bottom needed with new flex layout */
-    }
-
-    header h1 {
+    p,
+    li {
         text-align: center;
-        width: 100%;
     }
 
     .container {
-        width: 95%;
-        margin: 5px 10px; /* Adjust spacing */
-        flex: 0 0 auto; /* Don't grow or shrink */
-        min-width: 80px; /* Ensure enough space for wrapping */
-        max-width: 120px; /* Prevent items from becoming too wide */
-        text-align: center;
+        width: 95%; /* Adjust width for mobile */
+        margin: 0 auto; /* Center the container */
     }
 
-    nav ul li a {
-        display: block;
-        padding: 8px 0;
+    .call-to-action-item {
+        flex: 1 1 90%; /* Stack items vertically on small screens */
+        max-width: 90%;
+        margin: 0 auto 20px auto; /* Center and add bottom margin */
+        overflow: hidden; /* Ensure content is clipped */
     }
 
-    header {
-        position: static; /* Make header scrollable on mobile */
-    }
-
-    #back-to-top {
-        display: none !important; /* Force hide back to top button on mobile */
-    }
-
-    #hero .hero-title {
-        font-size: 2.5em; /* Smaller font size for mobile hero title */
-    }
-
-    .team-members-grid {
-        justify-content: flex-start; /* Align items to the start for horizontal scroll */
+    .call-to-action-item img {
+        width: 100%;
+        height: auto; /* Allow height to adjust proportionally */
+        object-fit: cover; /* Ensure image covers the area */
     }
 
     .team-member-item {
-        flex: 0 0 calc(80% - 20px); /* Adjust width for mobile, considering gap */
-        margin-right: 20px; /* Space between items */
+        width: 90%; /* Take up most of the width */
+        max-width: 300px; /* Prevent from becoming too wide on larger mobiles */
+        margin: 0 auto 20px auto; /* Center and add bottom margin */
+        overflow: hidden; /* Ensure content is clipped */
     }
 
-    .team-member-item:last-child {
-        margin-right: 0; /* No margin on the last item */
+    .team-member-item img {
+        width: 100%;
+        height: auto; /* Allow height to adjust proportionally */
+        object-fit: cover; /* Ensure image covers the area */
     }
 
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+    }
+    .table-responsive table {
+        width: 100%;
+        min-width: 500px;
+        white-space: nowrap;
+    }
+    .scroll-instruction {
+        text-align: left;
+        font-size: 0.6em;
+        color: #666;
+        margin-top: -35px;
+        margin-bottom: 5px;
+        padding-left: 5px;
+    }
 }
 
     /* Table adjustments for smaller screens */
@@ -348,16 +272,26 @@ nav ul li a:hover {
         padding: 8px 5px; /* Reduced padding for table cells */
     }
 
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+        display: block; /* Ensure it behaves as a block element */
+    }
 
+    .table-responsive table {
+        width: 100%; /* Ensure table takes full width of its container */
+        min-width: 500px; /* Set a minimum width to ensure scrolling if content is small */
+        white-space: nowrap; /* Prevent text wrapping inside table cells */
+    }
 
-.scroll-instruction {
-    text-align: left; /* Align to the left */
-    font-size: 0.6em; /* Smaller font size */
-    color: #666; /* Subtle color */
-    margin-top: -35px; /* Pull it up even higher */
-    margin-bottom: 5px; /* Small margin below */
-    padding-left: 5px; /* Small padding on the left */
-}
+    .scroll-instruction {
+        text-align: left; /* Align to the left */
+        font-size: 0.6em; /* Smaller font size */
+        color: #666; /* Subtle color */
+        margin-top: -35px; /* Pull it up even higher */
+        margin-bottom: 5px; /* Small margin below */
+        padding-left: 5px; /* Small padding on the left */
+    }
 
 /* Hero Section */
 #hero {

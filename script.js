@@ -110,23 +110,38 @@ document.addEventListener('DOMContentLoaded', function() {
     showNews(currentIndex);
 
     // Mobile Navigation Toggle
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+    // Header Opacity on Scroll (Mobile Specific)
+    const mobileLogoOnly = document.querySelector('.mobile-logo-only');
+    const scrollThreshold = 100; // Distance scrolled before opacity starts changing
 
-    if (hamburgerMenu && mobileNavMenu) {
-        hamburgerMenu.addEventListener('click', () => {
-            hamburgerMenu.classList.toggle('active');
-            mobileNavMenu.classList.toggle('active');
-        });
+    // Only apply this logic on mobile devices (based on CSS media query breakpoint)
+    function applyMobileHeaderLogic() {
+        if (window.innerWidth <= 768) { // Matches the max-width in CSS
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
 
-        // Close mobile nav when a link is clicked
-        mobileNavMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburgerMenu.classList.remove('active');
-                mobileNavMenu.classList.remove('active');
+                // Calculate opacity based on scroll position
+                const opacity = Math.max(0, 1 - (scrollY / scrollThreshold));
+                // Apply opacity to the mobile logo container
+                if (mobileLogoOnly) {
+                    mobileLogoOnly.style.opacity = opacity;
+                }
+
+                // Add subtle background to mobile logo container when scrolled
+                if (scrollY > 0) {
+                    mobileLogoOnly.style.backgroundColor = 'rgba(10, 35, 81, 0.8)'; // Dark blue with transparency
+                    mobileLogoOnly.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.2)';
+                } else {
+                    mobileLogoOnly.style.backgroundColor = 'transparent';
+                    mobileLogoOnly.style.boxShadow = 'none';
+                }
             });
-        });
+        }
     }
+
+    // Call the function on load and on resize
+    applyMobileHeaderLogic();
+    window.addEventListener('resize', applyMobileHeaderLogic);
 
     // Handle clicks on call-to-action items
     const callToActionItems = document.querySelectorAll('.call-to-action-item');

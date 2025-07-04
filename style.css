@@ -5,6 +5,11 @@ body {
     padding: 0;
     /* background: linear-gradient(to right, red, blue, white); */ /* Removed */
     color: #333;
+    padding-top: 90px; /* Adjust based on header height for desktop */
+}
+
+.mobile-logo-only {
+    display: none; /* Hidden by default on desktop */
 }
 
 header,
@@ -15,14 +20,6 @@ footer {
     text-align: center;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px 0;
-}
-
-/* Header styles */
 header {
     background-image: url('images/1.jfif'); /* Use 1.jfif as background */
     background-size: cover;
@@ -38,6 +35,8 @@ header {
     display: flex; /* Keep flex to manage logo */
     justify-content: flex-start; /* Align logo to the start */
     align-items: center; /* Vertically center logo */
+    height: 90px; /* Set a fixed height for the header */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background and shadow */
 }
 
 header .container {
@@ -45,9 +44,9 @@ header .container {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; /* Or a suitable max-width for your design */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px; /* Add some padding on the sides */
 }
 
 .logo-container {
@@ -56,16 +55,28 @@ header .container {
 }
 
 .logo {
-    width: 70px; /* Original size for homepage logo */
-    height: 70px; /* Original size for homepage logo */
-    margin-right: 15px;
-    transition: transform 0.3s ease-in-out;
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+
+.logo-container:hover .logo {
+    transform: scale(1.1); /* Scales the logo to 110% of its original size */
 }
 
 header h1 {
     margin: 0;
     font-size: 2em;
     transition: transform 0.3s ease-in-out; /* Smooth transition for 0.3 seconds */
+    color: #fff; /* Assuming white text for the header */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
 /* Hamburger Menu Styles */
@@ -89,60 +100,58 @@ header h1 {
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
-    header nav {
-        display: none; /* Hide main navigation on mobile */
+    header {
+        display: none; /* Hide the entire header on mobile */
     }
 
-    .hamburger-menu {
-        display: flex; /* Show hamburger menu on mobile */
+    body {
+        padding-top: 0; /* Remove padding from body as header is hidden */
     }
 
-    .mobile-nav-menu {
-        display: none; /* Hidden by default on mobile */
-        flex-direction: column;
-        position: absolute;
-        top: 80px; /* Adjust based on header height */
+    .mobile-logo-only {
+        display: flex; /* Show on mobile */
+        justify-content: flex-start; /* Align to the left */
+        align-items: center;
+        position: fixed; /* Keep it fixed at the top */
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: #0a2351; /* Dark background for the dropdown */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 999;
-        padding: 10px 0;
+        padding: 10px 20px; /* Add some padding */
+        z-index: 1000; /* Ensure it's on top */
+        background-color: transparent; /* Start transparent */
+        box-shadow: none; /* No shadow initially */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
     }
 
-    .mobile-nav-menu.active {
-        display: flex; /* Show when active */
+    .mobile-logo-only .logo {
+        width: 70px;
+        height: 70px;
+        margin-right: 0px; /* Remove gap */
     }
 
-    .mobile-nav-menu ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
+    /* Adjust main content padding to account for the new mobile logo container */
+    main {
+        padding-top: 90px; /* Adjust based on mobile-logo-only height */
     }
 
-    .mobile-nav-menu ul li {
+    .scroll-instruction {
+        text-align: left;
+        font-size: 0.6em;
+        color: #666;
+        margin-top: -35px;
+        margin-bottom: 5px;
+        padding-left: 5px;
+    }
+
+    .team-scroll-instruction {
+        display: block; /* Show on mobile */
         text-align: center;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 10px;
+        font-size: 0.8em;
+        color: #666;
     }
 
-    .mobile-nav-menu ul li:last-child {
-        border-bottom: none;
-    }
 
-    .mobile-nav-menu ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.2em;
-        display: block;
-        padding: 10px;
-        transition: background-color 0.3s ease;
-    }
-
-    .mobile-nav-menu ul li a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
 }
 
 @media (min-width: 769px) {
@@ -165,13 +174,6 @@ header h1 {
     padding-top: 80px; /* Adjust based on header height */
 }
 
-.logo-container:hover .logo {
-    transform: scale(1.1); /* Scales the logo to 110% of its original size */
-}
-
-.logo-container:hover h1 {
-    transform: scale(1.05); /* Slightly scales the h1 to 105% of its original size */
-}
 
 /* Call to Action Section Styles */
 .call-to-action-container {
@@ -242,18 +244,19 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 20px; /* Adjusted margin to fit all items */
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1em;
-    padding: 10px 15px;
+    font-size: 1.1em; /* Increased font size */
+    padding: 10px 15px; /* Adjusted padding */
     display: block;
     transition: background-color 0.3s ease;
     text-transform: uppercase;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 nav ul li a:hover {
@@ -319,6 +322,15 @@ nav ul li a:hover {
         margin-bottom: 5px;
         padding-left: 5px;
     }
+
+    .team-scroll-instruction {
+        display: block; /* Show on mobile */
+        text-align: center;
+        margin-top: 10px;
+        font-size: 0.8em;
+        color: #666;
+    }
+
 }
 
     /* Table adjustments for smaller screens */

@@ -89,7 +89,69 @@ header h1 {
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
+    header nav {
+        display: none; /* Hide main navigation on mobile */
+    }
 
+    .hamburger-menu {
+        display: flex; /* Show hamburger menu on mobile */
+    }
+
+    .mobile-nav-menu {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: #0a2351; /* Dark background for the dropdown */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        padding: 10px 0;
+    }
+
+    .mobile-nav-menu.active {
+        display: flex; /* Show when active */
+    }
+
+    .mobile-nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .mobile-nav-menu ul li {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-nav-menu ul li:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-nav-menu ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2em;
+        display: block;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .mobile-nav-menu ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none; /* Hide hamburger menu on desktop */
+    }
+    .mobile-nav-menu {
+        display: none; /* Hide mobile nav menu on desktop */
+    }
 }
 
 .info-page-logo {
